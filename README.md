@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+echo "# confusion2018" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Evgen097/confusion2018.git
+git push -u origin master
