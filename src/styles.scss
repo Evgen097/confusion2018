@@ -39,3 +39,9 @@ $divider-color:        #BDBDBD;
 .flex-spacer {
   flex: 1 1 auto;
 }
+.mat-toolbar.mat-primary {
+  background: #512DA8;
+}
+.mat-toolbar > a {
+  color: #fff;
+}
