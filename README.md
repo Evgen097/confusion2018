@@ -32,3 +32,7 @@ git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/Evgen097/confusion2018.git
 git push -u origin master
+
+cd C:\Coursera\json-server
+json-server --watch db.json
+json-server --watch db.json -d 500

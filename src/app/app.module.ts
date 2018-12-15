@@ -22,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MenuComponent } from './menu/menu.component';
 
@@ -34,12 +35,16 @@ import { ContactComponent } from './contact/contact.component';
 
 import {DishService} from "./services/dish.service";
 import {PromotionService} from "./services/promotion.service";
+import {ProcessHTTPMsgService} from "./services/process-httpmsg.service"
 
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {LeaderService} from "./services/leader.service";
 import { LoginComponent } from './login/login.component';
 
+import { baseURL } from './shared/baseurl';
 
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
 
 @NgModule({
   declarations: [
@@ -64,6 +69,7 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     AppRoutingModule,
     MatDialogModule,
+    HttpClientModule,
 
     MatFormFieldModule,
     MatInputModule,
@@ -75,9 +81,12 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
 
+    RestangularModule.forRoot(RestangularConfigFactory),
 
   ],
-  providers: [DishService, PromotionService, LeaderService],
+  providers: [DishService, PromotionService, LeaderService, ProcessHTTPMsgService,
+    {provide: 'BaseURL', useValue: baseURL}
+  ],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
